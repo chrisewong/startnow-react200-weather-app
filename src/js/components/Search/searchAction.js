@@ -3,15 +3,9 @@ import axios from 'axios';
 import keys from '../../../config/keys';
 
 
-export function Update(SearchEntries) {
-  return {
-    type: 'UPDATE_SEARCH',
-    payload: {
-      SearchEntries
-    }
-  };
-}
-  
+
+
+
   export function searches(SearchEntries) {
     const getCity = axios.get(`/searched/${SearchEntries}`)
     return (dispatch) => {
@@ -19,7 +13,8 @@ export function Update(SearchEntries) {
         type: 'GO',
         payload: getCity
         .then((response) => {
-          return response.data
+          // console.log(response);
+          return response
         })
       });
     };

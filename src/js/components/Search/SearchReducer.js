@@ -4,6 +4,7 @@ const defaultState = {
   SearchEntries: '',
   history: [],
   data: {
+    name: '',
     main: {
       humidity: '',
       pressure: '',
@@ -16,9 +17,12 @@ const defaultState = {
     },
     coord: {
       lat: '',
-      lon: ''
+      lon: '',
+    },
+    headers: {
+      date: ''
     }
-
+    
   }
   
 };
@@ -27,15 +31,22 @@ export default function SearchReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-  case 'UPDATE_SEARCH':{
-    console.log(payload);
-        return {
-          ...state,
-          history: payload
-        };
-      }
     case 'GO_FULFILLED': {
-      return {...state, data: payload}
+      // var history = []
+      // var hist = {}
+      // hist.Name = payload.data.name;
+      // hist.Date = payload.headers.date;
+      // history.push(hist);
+      // console.log(history);
+
+      return {state, 
+        data: payload.data,
+        history: [{
+          name: payload.data.name,
+          date: payload.headers.name,
+          ...state.history 
+        }]
+        };
       }
     case 'GO_REJECTED':
       {

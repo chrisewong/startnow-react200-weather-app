@@ -18,6 +18,7 @@ app.get('/searched/:city', (req, res) => {
         .then(response => {
             res.send(response.data)})
         .catch(error => console.log(error));
+
 });
 
 module.exports = app;
