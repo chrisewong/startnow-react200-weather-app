@@ -5,5 +5,4 @@ const rootReducer = combineReducers({
     searched: SearchReducer
     
 });
-
 export default rootReducer;

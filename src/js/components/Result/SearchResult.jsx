@@ -14,7 +14,7 @@ export default class SearchResult extends React.Component {
                 <div className='card-body text-center' id='result'>
                     {data ? (
                         <div>                            
-                            <label>Lat/Long:</label>
+                            <label>Lat/Long:&nbsp;</label>
                             {data.coord.lat}
                             {data.coord.lon}
                             <hr />

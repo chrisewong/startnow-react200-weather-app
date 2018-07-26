@@ -1,5 +1,6 @@
 import React from 'react';
-import { Update, searches } from './searchAction';
+import { getCity, updateCity } from './searchAction';
+// import SearchReducer from './SearchReducer';
 
 export default class SearchEntries extends React.Component {
     constructor(props) {
@@ -9,26 +10,27 @@ export default class SearchEntries extends React.Component {
         this.handleGet = this.handleGet.bind(this);
     }
 
-    handleSearch(event){
+
+    handleSearch(event) {
         const { dispatch } = this.props;
         const { value } = event.target;
-        dispatch(Update(value));
+        dispatch(updateCity(value));
     }
-    
-    handleGet(){
-        // console.log(this.props)
+    handleGet() {
         const { searched, dispatch } = this.props;
-        dispatch(searches(searched.SearchEntries));
+        dispatch(getCity(searched.SearchEntries));
+        console.log(searched.SearchEntries);
     }
 
     render() {
+        // console.log(this.state.input);
         const { SearchEntries } = this.props;
         return (
             <div className='container'>
-                <div className='input-group mb-3'>
-                    <input type='text' className='form-control' placeholder="Type City's name" id='search-input' value={SearchEntries} onChange={this.handleSearch}/>
-                    <div className='input-group-append'>
-                        <button className='btn btn-outline-secondary' type='button' onClick={this.handleGet}>ENTER</button>
+                <div className='input-group'>
+                    <input id="SearchEntries" type="text" className="form-control" placeholder="Enter name" value={SearchEntries} onChange={this.handleSearch} />
+                    <div className="input-group-append">
+                        <button className="btn btn-light" type="button" onClick={this.handleGet}>ENTER</button>
                     </div>
                 </div>
             </div>

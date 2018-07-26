@@ -9,7 +9,10 @@ export default class App extends React.Component {
     return (
       <div className='container'>
         <div className='jumbotron'>
+          
           <h1 className='display-3 text-center'>Weather App</h1>
+          
+        
         </div>
         <div className='row'>
           <AddOn />

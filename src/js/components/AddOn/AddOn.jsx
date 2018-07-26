@@ -1,15 +1,18 @@
 import React from 'react';
-import { searches } from '../Search/searchAction';
+import { getCity } from '../Search/searchAction';
 // import { Update, searches } from '../Search/searchAction';
 export default class AddOn extends React.Component {
   constructor(props) {
     super(props);
+
+    
+
     this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(e) {
-    // console.log(this.props);
+  handleClick(event) {
+    // console.log(event.target.name);
     const { dispatch } = this.props;
-    dispatch(searches(e.target.name));
+    dispatch(getCity(event.target.name));
   }
   
 
